@@ -86,7 +86,7 @@ void tabela5(CHUVEIRO *chuveiro)
 		 do
         {
             printf("Escolha do fator K \n");
-            printf("Op��es: 200, 240, 320 e 360 \n");
+            printf("Opções: 200, 240, 320 e 360 \n");
             scanf("%d", &chuveiro->fatorK);
         } while (chuveiro->fatorK != 200 && chuveiro->fatorK != 240 && chuveiro->fatorK != 320 && chuveiro->fatorK != 360);
         switch (chuveiro->fatorK)
@@ -112,7 +112,7 @@ void tabela5(CHUVEIRO *chuveiro)
 		 do
         {
             printf("Escolha do fator K \n");
-            printf("Op��es: 240, 320 e 360 \n");
+            printf("Opções: 240, 320 e 360 \n");
             scanf("%d", &chuveiro->fatorK);
         } while (chuveiro->fatorK != 240 && chuveiro->fatorK != 320 && chuveiro->fatorK != 360);
         switch (chuveiro->fatorK)
@@ -135,7 +135,7 @@ void tabela5(CHUVEIRO *chuveiro)
 		 do
         {
             printf("Escolha do fator K \n");
-            printf("Op��es: 240, 320 e 360 \n");
+            printf("Opções: 240, 320 e 360 \n");
             scanf("%d", &chuveiro->fatorK);
         } while (chuveiro->fatorK != 240 && chuveiro->fatorK != 320 && chuveiro->fatorK != 360);
         switch (chuveiro->fatorK)
@@ -158,7 +158,7 @@ void tabela5(CHUVEIRO *chuveiro)
 		 do
         {
             printf("Escolha do fator K \n");
-            printf("Op��es: 320 e 360 \n");
+            printf("Opções: 320 e 360 \n");
             scanf("%d", &chuveiro->fatorK);
         } while (chuveiro->fatorK != 320 && chuveiro->fatorK != 360);
         switch (chuveiro->fatorK)
@@ -178,7 +178,7 @@ void tabela5(CHUVEIRO *chuveiro)
 		 do
         {
             printf("Escolha do fator K \n");
-            printf("Op��es: 320 e 360 \n");
+            printf("Opções: 320 e 360 \n");
             scanf("%d", &chuveiro->fatorK);
         } while (chuveiro->fatorK != 320 && chuveiro->fatorK != 360);
         switch (chuveiro->fatorK)
