@@ -1,3 +1,10 @@
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+#ifndef LIBRARY.H
+#define LIBRARY.H
+
+
 typedef struct
 {
     float altura, teto, vazao, rti, tempo, pressao;
@@ -6,4 +13,7 @@ typedef struct
     char risco[50];
 } CHUVEIRO;
 
-void usoGeral();
+void usoGeral(CHUVEIRO *chuveiro);
+void tabela5(CHUVEIRO *chuveiro);
+
+#endif
