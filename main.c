@@ -20,7 +20,7 @@ int main()
 {
     CHUVEIRO chuveiro;
 	COBERTURA cobertura;
-    int op, calcArea=0;
+    int op;
     //setlocale(LC_ALL, "Portuguese");
     printf("Bem vindo ao programa de dimensionamento de chuveiros automáticos!\n");
 	do
@@ -38,42 +38,16 @@ int main()
             printf("Opção inválida!\n");
         }
     } while (chuveiro.riscoCodigo < 1 || chuveiro.riscoCodigo > 6);
-
 	
-	printf("Como deseja calcular a área de cobertura?\n");
-	printf("1 - Informando área\n");
-	printf("2 - Cálculo\n");
-	printf("3 - Deixar o programa cálcular a melhor área de cobertura padrão\n");
-	printf("4 - Deixar o programa cálcular a melhor área de cobertura extendida11\n");
-	do{scanf("%d", &op);
-	switch (op)
-	{
-		case 1:
-			printf("Informe a área de cobertura: ");
-			scanf("%f", &chuveiro.areaCobertura);
-			break;
-		case 2:
-			areaCobertura(&chuveiro, &cobertura);
-			break;
-		case 3:
-			printf("O programa calculará a melhor área de cobertura padrão\n");
-			calcArea = 1;
-			break;
-		case 4:
-			printf("O programa calculará a melhor área de cobertura extendida\n");
-			calcArea = 2;
-			break;
-		default:
-			printf("Opção inválida!\n");
-			break;
-	}}while(op < 1 || op > 4);
-	  
-	coletaDados(&chuveiro);
+	
 
-	if(chuveiro.riscoCodigo == 6)
-		tabela5(&chuveiro);
-		else			
-			usoGeral(&chuveiro);
+	if(chuveiro.riscoCodigo == 6){
+		coletaDados(&chuveiro);
+		tabela5(&chuveiro);}
+		else{
+			tipoCobertura(&chuveiro, &cobertura);
+			teto(&cobertura);			
+			usoGeral(&chuveiro);}
 	
 	  
 
