@@ -4,6 +4,7 @@
 #ifndef LIBRARY.H
 #define LIBRARY .H
 
+
 typedef struct
 {
     float altura, teto, vazao, rti, tempo, pressao;
