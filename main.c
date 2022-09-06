@@ -6,13 +6,14 @@
 #include "armazenamento.c"
 #include "geral.c"
 #include "coberturaGeral.c"
+#include "basico.c"
 
 int main()
 {
     CHUVEIRO chuveiro;
     COBERTURA cobertura;
     int op;
-    // setlocale(LC_ALL, "Portuguese");
+    setlocale(LC_ALL, "Portuguese");
     printf("Bem vindo ao programa de dimensionamento de chuveiros automáticos!\n");
     do
     {
@@ -38,9 +39,9 @@ int main()
     else
     {
         usoGeral(&chuveiro);
-
-        tipoCobertura(&chuveiro, &cobertura);
+        tipoChuveiro(&chuveiro);
         teto(&cobertura);
+        tipoCobertura(&chuveiro, &cobertura);
     }
 
     chuveiro.vazao = chuveiro.fatorK * sqrt(chuveiro.pressao);

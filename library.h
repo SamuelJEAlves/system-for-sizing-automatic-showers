@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
-#ifndef LIBRARY.H
-#define LIBRARY .H
+#ifndef LIBRARY
+#define LIBRARY
 
 typedef struct
 {
@@ -19,7 +19,7 @@ typedef struct
 typedef struct
 {
     float a, b, c, d, s, l;
-    int tetoCodigo; // 1 - Não combustível, 2 - Combustível, 0 - Combustível com estruturaint tetoCodigo;
+    int tetoCodigo; // 1 - Não combustível, 2 - Combustível, 0 - Combustível com estrutura;
 } COBERTURA;
 
 void usoGeral(CHUVEIRO *chuveiro);

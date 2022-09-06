@@ -23,9 +23,7 @@ void tipoCobertura(CHUVEIRO *chuveiro, COBERTURA *cobertura)
             break;
         case 2:
             do
-            {
                 areaCobertura(&chuveiro, &cobertura);
-            } while (chuveiro->areaCobertura == 0);
 
             break;
         case 3:
@@ -49,7 +47,7 @@ void teto(COBERTURA *cobertura)
     do
     {
         printf("Informe o tipo de teto: \n");
-        printf("1 - Não combustível obstruído e não obstruído combustível não obstruído\n");
+        printf("1 - Não combustível obstruído e não obstruído; combustível não obstruído\n");
         printf("2 - Combustível obstruído\n");
         printf("3 - Combustível com elementos estruturais distanciados a menos de 0,90 m\n");
         printf("Opção: ");
