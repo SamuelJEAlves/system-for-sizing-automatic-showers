@@ -6,6 +6,7 @@
 #include "armazenamento.c"
 #include "geral.c"
 #include "coberturaGeral.c"
+#include "basico.c"
 
 int main()
 {
