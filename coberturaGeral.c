@@ -292,27 +292,44 @@ void coberturaSprayPe(CHUVEIRO *chuveiro, COBERTURA *cobertura)
             chuveiro->coberturaCodigo = 0;
         }
     }
+
+    if ((cobertura->b < 1.8 || cobertura->b < 1.8) && chuveiro->coberturaCodigo == 1)
+    {
+        printf("Distância mínima entre chuveiros automáticos tipo spray em pé e pendentes de cobertura-padrão é de 1.8 metros \n");
+        chuveiro->coberturaCodigo = 0;
+    }
+
+    if ((cobertura->b < 2.4 || cobertura->b < 2.4) && chuveiro->coberturaCodigo == 2)
+    {
+        printf("Distância mínima entre chuveiros automáticos tipo spray em pé e pendentes de cobertura estendida é de 2.4 metros \n");
+        chuveiro->coberturaCodigo = 0;
+    }
+
+    if (chuveiro->coberturaCodigo == 0)
+        printf("Refaça os cálculos da área de cobertura");
 }
 
 void coberturaCCAE(CHUVEIRO *chuveiro, COBERTURA *cobertura)
 {
-    int op do
+    int op;
+    do
     {
         printf("A área protegida possui estruturas porta-paletes?\n");
         printf("1 - Sim\n");
         printf("2 - Não\n");
         printf("Opção: ");
         scanf("%d", &op);
-    }
-    while (op != 1 && op != 2)
-        ;
+    } while (op != 1 && op != 2);
+
     if (op == 1)
     {
         if (chuveiro->areaCobertura < 7.4)
+
         {
             printf("A área mínima de cobertura para chuveiros CCAE deve ser de 7,4 m²");
             chuveiro->chuveiroCodigo = 0;
         }
+
         else if ((cobertura->tetoCodigo == 2 || cobertura->tetoCodigo == 3) && chuveiro->areaCobertura <= 9.3)
         {
             if (cobertura->b > 4.6 || cobertura->d > 4.6)
