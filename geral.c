@@ -47,3 +47,58 @@ void usoGeral(CHUVEIRO *chuveiro)
         break;
     }
 }
+
+void fatorKGeral(CHUVEIRO *chuveiro)
+{
+    switch (chuveiro->riscoCodigo)
+    {
+    case 1:
+        if (chuveiro->teto <= 9)
+            chuveiro->fatorK = 80;
+        else if (chuveiro->teto <= 18 && chuveiro->coberturaCodigo == 1)
+            chuveiro->fatorK = 115;
+        else
+            chuveiro->fatorK = 360;
+        break;
+
+    case 2:
+        if (chuveiro->teto <= 9)
+            chuveiro->fatorK = 115;
+        else if (chuveiro->teto <= 18 && chuveiro->coberturaCodigo == 1)
+            chuveiro->fatorK = 115;
+        else
+            chuveiro->fatorK = 360;
+        break;
+
+    case 3:
+        if (chuveiro->teto <= 9)
+            chuveiro->fatorK = 115;
+        else if (chuveiro->teto <= 18 && chuveiro->coberturaCodigo == 1)
+            chuveiro->fatorK = 115;
+        else
+            chuveiro->fatorK = 360;
+        break;
+
+    case 4:
+        if (chuveiro->teto <= 9)
+            chuveiro->fatorK = 160;
+        else if (chuveiro->teto <= 18 && chuveiro->coberturaCodigo == 1)
+            chuveiro->fatorK = 160;
+        else
+            chuveiro->fatorK = 360;
+        break;
+
+    case 5:
+        if (chuveiro->teto <= 9)
+            chuveiro->fatorK = 160;
+        else if (chuveiro->teto <= 18 && chuveiro->coberturaCodigo == 1)
+            chuveiro->fatorK = 160;
+        else
+            chuveiro->fatorK = 360;
+        break;
+
+    default:
+        printf("Erro encontrado no risco");
+        break;
+    }
+}
