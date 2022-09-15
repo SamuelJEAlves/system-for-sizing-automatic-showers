@@ -6,9 +6,9 @@
 
 void coletaDados(CHUVEIRO *chuveiro)
 {
-    printf("Informe a altura do teto: ");
+    wprintf(L"Informe a altura do teto: ");
     scanf("%f", &chuveiro->teto);
-    printf("Informe a altura do armazenamento: ");
+    wprintf(L"Informe a altura do armazenamento: ");
     scanf("%f", &chuveiro->altura);
 }
 
@@ -16,55 +16,55 @@ void teto(COBERTURA *cobertura)
 {
     do
     {
-        printf("Informe o tipo de teto: \n");
-        printf("1 - Não combustível obstruído e não obstruído; combustível não obstruído\n");
-        printf("2 - Combustível obstruído\n");
-        printf("3 - Combustível com elementos estruturais distanciados a menos de 0,90 m\n");
-        printf("Opção: ");
+        wprintf(L"\nInforme o tipo de teto: \n");
+        wprintf(L"1 - Não combustível obstruído e não obstruído; combustível não obstruído\n");
+        wprintf(L"2 - Combustível obstruído\n");
+        wprintf(L"3 - Combustível com elementos estruturais distanciados a menos de 0,90 m\n");
+        wprintf(L"Opção: ");
         scanf("%d", &cobertura->tetoCodigo);
     } while (cobertura->tetoCodigo < 1 || cobertura->tetoCodigo > 3);
 }
 
 void tipoChuveiro(CHUVEIRO *chuveiro)
 {
-    printf("Informe o tipo de chuveiro da edificação\n");
-    printf("1 - Spray em pé e pendente\n");
-    printf("2 - Controle de aplicação específica (CCAE)\n");
-    printf("3 - Resposta rápida (ESFR)\n");
-    printf("Opção: ");
+    wprintf(L"\nInforme o tipo de chuveiro da edificação\n");
+    wprintf(L"1 - Spray em pé e pendente\n");
+    wprintf(L"2 - Controle de aplicação específica (CCAE)\n");
+    wprintf(L"3 - Resposta rápida (ESFR)\n");
+    wprintf(L"Opção: ");
     scanf("%d", &chuveiro->chuveiroCodigo);
 }
 
 void tipoCobertura(CHUVEIRO *chuveiro, COBERTURA *cobertura)
 {
     int op = 0;
-    printf("Como deseja calcular a área de cobertura?\n");
-    printf("1 - Informando área\n");
-    printf("2 - Cálculo\n");
-    printf("3 - Deixar o programa cálcular a melhor área de cobertura padrão\n");
-    printf("4 - Deixar o programa cálcular a melhor área de cobertura extendida\n");
+    wprintf(L"\nComo deseja calcular a área de cobertura?\n");
+    wprintf(L"1 - Informando área\n");
+    wprintf(L"2 - Cálculo\n");
+    wprintf(L"3 - Deixar o programa cálcular a melhor área de cobertura padrão\n");
+    wprintf(L"4 - Deixar o programa cálcular a melhor área de cobertura extendida\n");
     do
     {
         scanf("%d", &op);
         switch (op)
         {
         case 1:
-            printf("Informe a área de cobertura: ");
+            wprintf(L"Informe a área de cobertura: ");
             scanf("%f", &chuveiro->areaCobertura);
             break;
         case 2:
             areaCobertura(&*chuveiro, &*cobertura);
             break;
         case 3:
-            printf("O programa calculará a melhor área de cobertura padrão\n");
+            wprintf(L"O programa calculará a melhor área de cobertura padrão\n");
             chuveiro->coberturaCodigo = 1;
             break;
         case 4:
-            printf("O programa calculará a melhor área de cobertura extendida\n");
+            wprintf(L"O programa calculará a melhor área de cobertura extendida\n");
             chuveiro->coberturaCodigo = 2;
             break;
         default:
-            printf("Opção inválida!\n");
+            wprintf(L"Opção inválida!\n");
             break;
         }
     } while (op < 1 || op > 4);
@@ -73,24 +73,24 @@ void tipoCobertura(CHUVEIRO *chuveiro, COBERTURA *cobertura)
 void areaCobertura(CHUVEIRO *chuveiro, COBERTURA *cobertura)
 {
 
-    printf("_______________________________________________\n");
-    printf("|                       ^\n");
-    printf("|                       C\n");
-    printf("|                       v\n");
-    printf("|       O ------------- O ------------- O -----\n");
-    printf("| <-A-> | <-----B-----> |        ^\n");
-    printf("|                                D\n");
-    printf("|                                v\n");
-    printf("|       O ------------- O ------------- O -----\n");
-    printf("O = Chuveiro\n");
-    printf("---- = Ramal\n\n\n");
-    printf("Informe o valor de A: ");
+    wprintf(L"_______________________________________________\n");
+    wprintf(L"|                       ^\n");
+    wprintf(L"|                       C\n");
+    wprintf(L"|                       v\n");
+    wprintf(L"|       O ------------- O ------------- O -----\n");
+    wprintf(L"| <-A-> | <-----B-----> |        ^\n");
+    wprintf(L"|                                D\n");
+    wprintf(L"|                                v\n");
+    wprintf(L"|       O ------------- O ------------- O -----\n");
+    wprintf(L"O = Chuveiro\n");
+    wprintf(L"---- = Ramal\n\n\n");
+    wprintf(L"Informe o valor de A: ");
     scanf("%f", &cobertura->a);
-    printf("Informe o valor de B: ");
+    wprintf(L"Informe o valor de B: ");
     scanf("%f", &cobertura->b);
-    printf("Informe o valor de C: ");
+    wprintf(L"Informe o valor de C: ");
     scanf("%f", &cobertura->c);
-    printf("Informe o valor de D: ");
+    wprintf(L"Informe o valor de D: ");
     scanf("%f", &cobertura->d);
 
     if (cobertura->a * 2 > cobertura->b)
@@ -112,5 +112,5 @@ void areaCobertura(CHUVEIRO *chuveiro, COBERTURA *cobertura)
     }
 
     chuveiro->areaCobertura = cobertura->s * cobertura->l;
-    printf("A área de cobertura é: %.2f\n\n", chuveiro->areaCobertura);
+    wprintf(L"A área de cobertura é: %.2f\n\n", chuveiro->areaCobertura);
 }
