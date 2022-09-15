@@ -15,7 +15,7 @@ int main()
     int op;
     chuveiro.coberturaCodigo = 0;
 
-    setlocale(LC_ALL, "Portuguese");
+    // setlocale(LC_ALL, "Portuguese");
     printf("Bem vindo ao programa de dimensionamento de chuveiros automáticos!\n");
     do
     {
@@ -40,8 +40,10 @@ int main()
     }
     else
     {
-        usoGeral(&chuveiro);                  // Define a densidade, área de aplicação, tempo e VGA
-        tipoChuveiro(&chuveiro);              // Define o tipo de chuveiro utilizado
+        coletaDados(&chuveiro);
+        usoGeral(&chuveiro);     // Define a densidade, área de aplicação, tempo e VGA
+        tipoChuveiro(&chuveiro); // Define o tipo de chuveiro utilizado
+        cobertura.tetoCodigo = 0;
         teto(&cobertura);                     // define o tipo de teto
         tipoCobertura(&chuveiro, &cobertura); // Define o método de cálculo da área de cobertura
         // Conferencia da cobertura.
@@ -60,10 +62,10 @@ int main()
                 }
             }
         } while (chuveiro.coberturaCodigo == 0);
+        fatorKGeral(&chuveiro); // Define o fator K
+        chuveiro.vazao = chuveiro.densidade * chuveiro.areaAplicacao;
+        chuveiro.rti = chuveiro.vazao * chuveiro.tempo;
     }
-
-    chuveiro.vazao = chuveiro.fatorK * sqrt(chuveiro.pressao);
-    chuveiro.rti = chuveiro.vazao * chuveiro.nChuveiros * chuveiro.tempo;
 
     printf("Vazão: %.2f m³/h\n", chuveiro.vazao);
     printf("RTI: %.2f m³", chuveiro.rti);

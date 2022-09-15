@@ -32,12 +32,12 @@ void tipoChuveiro(CHUVEIRO *chuveiro)
     printf("2 - Controle de aplicação específica (CCAE)\n");
     printf("3 - Resposta rápida (ESFR)\n");
     printf("Opção: ");
-    scanf("%d", chuveiro->chuveiroCodigo);
+    scanf("%d", &chuveiro->chuveiroCodigo);
 }
 
 void tipoCobertura(CHUVEIRO *chuveiro, COBERTURA *cobertura)
 {
-    int op;
+    int op = 0;
     printf("Como deseja calcular a área de cobertura?\n");
     printf("1 - Informando área\n");
     printf("2 - Cálculo\n");
