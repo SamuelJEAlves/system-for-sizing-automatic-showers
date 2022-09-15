@@ -321,6 +321,53 @@ void coberturaCCAE(CHUVEIRO *chuveiro, COBERTURA *cobertura)
         scanf("%d", &op);
     } while (op != 1 && op != 2);
 
+    if (op == 2)
+    {
+        if (chuveiro->areaCobertura < 7.4)
+
+        {
+            wprintf(L"A área mínima de cobertura para chuveiros CCAE deve ser de 7,4 m²");
+            chuveiro->chuveiroCodigo = 0;
+        }
+
+        else if ((cobertura->tetoCodigo == 1 || cobertura->tetoCodigo == 2) && chuveiro->areaCobertura <= 12.1)
+        {
+            if (cobertura->b > 3.7 || cobertura->d > 3.7)
+            {
+                wprintf(L"A cobertura não atende os requisitos de segurança.\n");
+                wprintf(L"A distância entre os chuveiros deve ser de no máximo 3,7 metros.\n");
+                chuveiro->coberturaCodigo = 0;
+            }
+            else
+            {
+                wprintf(L"Área de cobertura atende aos requistos de cobetura padrão.\n");
+                chuveiro->coberturaCodigo = 1;
+            }
+        }
+
+        else if (chuveiro->areaCobertura <= 9.3)
+        {
+
+            if (cobertura->b > 3.1 || cobertura->d > 3.1)
+            {
+                wprintf(L"A cobertura não atende os requisitos de segurança.\n");
+                wprintf(L"A distância entre os chuveiros deve ser de no máximo 3,1 metros.\n");
+                chuveiro->coberturaCodigo = 0;
+            }
+            else
+            {
+                wprintf(L"Área de cobertura atende aos requistos de cobetura padrão.\n");
+                chuveiro->coberturaCodigo = 1;
+            }
+        }
+
+        else
+        {
+            wprintf(L"Área de cobertura maior do que a área máxima permitida\n");
+            chuveiro->coberturaCodigo = 0;
+        }
+    }
+
     if (op == 1)
     {
         if (chuveiro->areaCobertura < 7.4)
@@ -330,12 +377,12 @@ void coberturaCCAE(CHUVEIRO *chuveiro, COBERTURA *cobertura)
             chuveiro->chuveiroCodigo = 0;
         }
 
-        else if ((cobertura->tetoCodigo == 2 || cobertura->tetoCodigo == 3) && chuveiro->areaCobertura <= 9.3)
+        else if ((cobertura->tetoCodigo == 1 || cobertura->tetoCodigo == 2) && chuveiro->areaCobertura <= 9.3)
         {
-            if (cobertura->b > 4.6 || cobertura->d > 4.6)
+            if (cobertura->b > 3.7 || cobertura->d > 3.7)
             {
                 wprintf(L"A cobertura não atende os requisitos de segurança.\n");
-                wprintf(L"A distância entre os chuveiros deve ser de no máximo 4,6 metros.\n");
+                wprintf(L"A distância entre os chuveiros deve ser de no máximo 3,7 metros.\n");
                 chuveiro->coberturaCodigo = 0;
             }
             else
@@ -344,5 +391,65 @@ void coberturaCCAE(CHUVEIRO *chuveiro, COBERTURA *cobertura)
                 chuveiro->coberturaCodigo = 1;
             }
         }
+
+        else if (chuveiro->areaCobertura <= 9.3)
+        {
+
+            if (cobertura->b > 3.1 || cobertura->d > 3.1)
+            {
+                wprintf(L"A cobertura não atende os requisitos de segurança.\n");
+                wprintf(L"A distância entre os chuveiros deve ser de no máximo 3,1 metros.\n");
+                chuveiro->coberturaCodigo = 0;
+            }
+            else
+            {
+                wprintf(L"Área de cobertura atende aos requistos de cobetura padrão.\n");
+                chuveiro->coberturaCodigo = 1;
+            }
+        }
+
+        else
+        {
+            wprintf(L"Área de cobertura maior do que a área máxima permitida\n");
+            chuveiro->coberturaCodigo = 0;
+        }
+    }
+}
+
+void coberturaESFR(CHUVEIRO *chuveiro, COBERTURA *cobertura)
+{
+
+    if (cobertura->tetoCodigo == 3)
+    {
+        wprintf(L"Não é permitida uso de chuveiro ESFR para este tipo de teto.\n");
+        chuveiro->coberturaCodigo = 0;
+    }
+
+    else if (chuveiro->teto <= 9.3)
+    {
+        if (cobertura->b > 3.7 || cobertura->d > 3.7)
+        {
+            wprintf(L"A cobertura não atende os requisitos de segurança.\n");
+            wprintf(L"A distância entre os chuveiros deve ser de no máximo 3,7 metros.\n");
+            chuveiro->coberturaCodigo = 0;
+        }
+        else
+        {
+            wprintf(L"Área de cobertura atende aos requistos de cobetura padrão.\n");
+            chuveiro->coberturaCodigo = 1;
+        }
+    }
+
+    else if (cobertura->b > 3.1 || cobertura->d > 3.1)
+    {
+        wprintf(L"A cobertura não atende os requisitos de segurança.\n");
+        wprintf(L"A distância entre os chuveiros deve ser de no máximo 3,1 metros.\n");
+        chuveiro->coberturaCodigo = 0;
+    }
+
+    else
+    {
+        wprintf(L"Área de cobertura atende aos requistos de cobetura padrão.\n");
+        chuveiro->coberturaCodigo = 1;
     }
 }

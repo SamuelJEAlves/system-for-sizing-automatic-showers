@@ -60,10 +60,16 @@ int main()
                     coberturaSprayPe(&chuveiro, &cobertura);
                     break;
 
-                default:
+                case 2:
+                    coberturaCCAE(&chuveiro, &cobertura);
+                    break;
+
+                case 3:
+                    coberturaESFR(&chuveiro, &cobertura);
                     break;
                 }
             }
+
         } while (chuveiro.coberturaCodigo == 0);
         fatorKGeral(&chuveiro);                                                   // Define o fator K
         chuveiro.vazao = chuveiro.densidade * chuveiro.areaAplicacao * 0.06 * 12; // 0.06 é o fator de conversão de litros/minuto para m³/horaa

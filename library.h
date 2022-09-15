@@ -19,7 +19,7 @@ typedef struct
 typedef struct
 {
     float a, b, c, d, s, l;
-    int tetoCodigo; // 1 - Não combustível, 2 - Combustível, 0 - Combustível com estrutura;
+    int tetoCodigo; // 1 - Não combustível, 2 - Combustível, 3 - Combustível com estrutura;
 } COBERTURA;
 
 void usoGeral(CHUVEIRO *chuveiro);
@@ -29,5 +29,7 @@ void areaCobertura(CHUVEIRO *chuveiro, COBERTURA *cobertura);
 void coberturaSprayPe(CHUVEIRO *chuveiro, COBERTURA *cobertura);
 void teto(COBERTURA *cobertura);
 void tipoChuveiro(CHUVEIRO *chuveiro);
+void coberturaCCAE(CHUVEIRO *chuveiro, COBERTURA *cobertura);
+void coberturaESFR(CHUVEIRO *chuveiro, COBERTURA *cobertura);
 
 #endif
