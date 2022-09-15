@@ -102,3 +102,21 @@ void fatorKGeral(CHUVEIRO *chuveiro)
         break;
     }
 }
+
+void calculoVazao(CHUVEIRO *chuveiro, COBERTURA *cobertura)
+{
+    int n, i;
+    cobertura->ladoMaior = 1.2 * sqrt(chuveiro->areaAplicacao);
+    cobertura->nLadoMaior = ceil(cobertura->ladoMaior / cobertura->b);
+    cobertura->nRamais = flor(chuveiro->nChuveiros / cobertura->ladoMaior);
+    n = cobertura->nRamais;
+    cobertura->q[0] = chuveiro->densidade * chuveiro->areaCobertura;
+    cobertura->p[0] = sqrt(cobertura->q[0] * chuveiro->fatorK);
+    cobertura->qRamal[0] = cobertura->q[0];
+    foi(i = 1; i < n; i++)
+    {
+        cobertura->p[i] = cobertura->p[i - 1] + 0.2;
+        cobertura->q[i] = chuveiro->fatorK * sqrt(cobertura->p[i]);
+        cobertura->qRamal[0] += cobertura->q[i];
+    }
+}

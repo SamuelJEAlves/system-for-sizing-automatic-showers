@@ -71,8 +71,9 @@ int main()
             }
 
         } while (chuveiro.coberturaCodigo == 0);
-        fatorKGeral(&chuveiro);                                                   // Define o fator K
-        chuveiro.vazao = chuveiro.densidade * chuveiro.areaAplicacao * 0.06 * 12; // 0.06 é o fator de conversão de litros/minuto para m³/horaa
+        fatorKGeral(&chuveiro); // Define o fator K
+        chuveiro.nChuveiros = ceil(chuveiro.areaAplicacao / chuveiro.areaCobertura);
+        chuveiro.vazao = chuveiro.densidade * chuveiro.areaCobertura * 0.06 * chuveiro.nChuveiros; // 0.06 é o fator de conversão de litros/minuto para m³/horaa
 
         chuveiro.rti = chuveiro.vazao * chuveiro.tempo;
     }
