@@ -13,7 +13,9 @@ int main()
     CHUVEIRO chuveiro;
     COBERTURA cobertura;
     int op;
-    // setlocale(LC_ALL, "Portuguese");
+    chuveiro.coberturaCodigo = 0;
+
+    setlocale(LC_ALL, "Portuguese");
     printf("Bem vindo ao programa de dimensionamento de chuveiros automáticos!\n");
     do
     {
@@ -38,10 +40,26 @@ int main()
     }
     else
     {
-        usoGeral(&chuveiro);
+        usoGeral(&chuveiro);                  // Define a densidade, área de aplicação, tempo e VGA
+        tipoChuveiro(&chuveiro);              // Define o tipo de chuveiro utilizado
+        teto(&cobertura);                     // define o tipo de teto
+        tipoCobertura(&chuveiro, &cobertura); // Define o método de cálculo da área de cobertura
+        // Conferencia da cobertura.
+        do
+        {
+            if (chuveiro.coberturaCodigo == 0)
+            {
+                switch (chuveiro.chuveiroCodigo)
+                {
+                case 1:
+                    coberturaSprayPe(&chuveiro, &cobertura);
+                    break;
 
-        tipoCobertura(&chuveiro, &cobertura);
-        teto(&cobertura);
+                default:
+                    break;
+                }
+            }
+        } while (chuveiro.coberturaCodigo == 0);
     }
 
     chuveiro.vazao = chuveiro.fatorK * sqrt(chuveiro.pressao);
