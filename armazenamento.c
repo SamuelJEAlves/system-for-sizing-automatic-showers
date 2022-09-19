@@ -6,12 +6,11 @@
 
 void tabela3(CHUVEIRO *chuveiro)
 {
-    int merc;
     printf("Escolha o tipo de mercadoria: \n");
     printf("Opções: 1, 2, 3 ou 4 \n");
-    scanf("%d", &merc);
+    scanf("%d", &chuveiro->mercadoria);
 
-    switch (merc)
+    switch (chuveiro->mercadoria)
     {
         case 1:
         if (chuveiro->altura > 3.7 && chuveiro->altura <= 6.1)
@@ -67,14 +66,13 @@ void tabela3(CHUVEIRO *chuveiro)
     }
 }
 void tabela4(CHUVEIRO *chuveiro)
-{
-    int merc, chuv;
-
+{   
+    int chuv;
     printf("Escolha a classe da mercadoria: 1, 2, 3 ou 4 \n");
     printf("Opções: 1, 2, 3 ou 4 \n");
-    scanf("%d", &merc);
+    scanf("%d", &chuveiro->mercadoria);
     
-    switch (merc)
+    switch (chuveiro->mercadoria)
     {
         case 1:
         if (chuveiro->altura <= 7.6 && chuveiro->teto <= 9.1)
@@ -496,6 +494,7 @@ void tabela4(CHUVEIRO *chuveiro)
         chuveiro->nChuveiros = 15;
     }
     break;
+
         case 4:
         printf("Escolha o numero de chuveiros: 20 ou 15 \n");
         scanf("%d", &chuv);
@@ -791,13 +790,11 @@ void tabela5(CHUVEIRO *chuveiro)
 }
 void tabela6(CHUVEIRO *chuveiro)
 {
-    int merc;
-
     printf("Escolha a classe da merdadoria: \n");
     printf("Opções: 1, 2, 3 ou 4 \n");
-    scanf("%d", &merc);
+    scanf("%d", &chuveiro->mercadoria);
 
-    switch (merc)
+    switch (chuveiro->mercadoria)
     {
         case 1:
         printf("Largura do corredor: 1.2m - Densidade: 15.1 L/min/m2");
